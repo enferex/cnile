@@ -7,7 +7,7 @@ CFLAGS += -I$(PLUGINS_DIR)/include -fPIC -O0 -g3
 # I use this for debugging. 
 # The following path contains a version of gcc with debug
 # symbols and no optimization.
-GCCPATH=~/proj/gcc-4.8.0-obj/
+# GCCPATH=~/proj/gcc-4.8.0-obj/
 
 $(PLUGIN): $(OBJS)
 	$(CC) -shared $^ -o $@
