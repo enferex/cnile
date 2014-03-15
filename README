@@ -1,0 +1,55 @@
+cnile: GCC-plugin to store build flags in the resulting binary file.
+==========================================================================
+
+What
+----
+cnile is a plugin for GCC which stores the flags used for compiling.  What's
+that you ask? How many times have you been presented with a binary or object
+file and asked the question: "Was this compiled using xyz flags?"  Perhaps you
+forgot?  Well, that day is over.  This is a stupid-simple plugin which stashes
+all build flags in a separate section of the binary being compiled.
+
+
+Dependencies
+------------
+GCC version 4.5 introduced plugins.  cnile has only been built and tested on
+4.8 thus, for older versions, your mileage might vary.
+
+
+Build
+-----
+This is a gcc plugin and uses the plugin framework built with g++ in version 4.8
+of GCC.  To build things simply run `make' from the cnile directory.
+
+
+Use
+---
+Next time you build with GCC 4.8 or higher, include the cnile plugin by passing the
+'-fplugin=cnile.so' flag to GCC.
+
+The flags are stored as comma separated values in the .cnile section of the
+binary.  `objdump or 'strings' can be used to get the goodies out/
+`objdump <your binary> -j .cnile -s
+
+The section begins with the text: "<cnile>" and ends with
+"</cnile>".  This permits trivial sed processing:
+`strings <your binary> | sed '/<cnile>/,/<\/cnile/>`'
+
+
+Install
+-------
+GCC must know where cnile.so is located in order to use it.
+You can install this plugin where GCC  recognizes your other plugins by copying
+cnile.so there.  The general plugin directory can be found by issuing the
+following argument to GCC: `gcc -print-file-name=plugin'  You will still have to
+issue the '-fplugin=cnile.so' flag for the magic to get rockin'.
+
+But wait, what's easier is that you can merely specify the full path to the
+plugin when you compile your program:
+`gcc foo.c -fplugin=/path/to/cnile.so'
+
+
+Contact
+-------
+Matt Davis (enferex)
+mattdavis9@gmail.com
