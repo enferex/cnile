@@ -1,6 +1,6 @@
 CC=g++
-PLUGIN = retreet.so
-OBJS = retreet.o
+PLUGIN = cnile.so
+OBJS = cnile.o
 PLUGINS_DIR = $(shell $(CC) -print-file-name=plugin)
 CFLAGS += -I$(PLUGINS_DIR)/include -fPIC -O0 -g3
 
