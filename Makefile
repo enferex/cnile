@@ -20,4 +20,4 @@ debug: $(DBG_PLUGIN)
         -fplugin=./$(PLUGIN) test.c -I$(GCCPATH)/gcc/include
 
 clean:
-	$(RM) $(OBJS) $(PLUGIN) test test2.o
+	$(RM) $(OBJS) $(PLUGIN) test
