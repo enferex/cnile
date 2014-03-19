@@ -18,7 +18,7 @@ GCC version 4.5 introduced plugins.  cnile has only been built and tested on
 
 Build
 -----
-This is a gcc plugin and uses the plugin framework built with g++ in version 4.8
+This is a GCC plugin and uses the plugin framework built with g++ in version 4.8
 of GCC.  To build things simply run `make' from the cnile directory.
 
 
@@ -28,8 +28,8 @@ Next time you build with GCC 4.8 or higher, include the cnile plugin by passing 
 '-fplugin=cnile.so' flag to GCC.
 
 The flags are stored as comma separated values in the .cnile section of the
-binary.  `objdump or 'strings' can be used to get the goodies out/
-`objdump <your binary> -j .cnile -s
+binary.  `objdump' or 'strings' can be used to get the goodies out:
+`objdump <your binary> -j .cnile -s'
 
 The section begins with the text: "<cnile>" and ends with
 "</cnile>".  This permits trivial sed processing:
