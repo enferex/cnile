@@ -22,7 +22,9 @@
 #include <string.h>
 #include <toplev.h>
 
+
 int plugin_is_GPL_compatible = 666;
+
 
 /* Look at all command line options and dump them into a 
  * ELF section '.cnile' as a comma separated value list.
@@ -48,11 +50,14 @@ static void cnile(void *gcc_data, void *user_data)
     assemble_string(ftr, strlen(ftr));
 }
 
+
 int plugin_init(
     struct plugin_name_args *plugin_info,
     struct plugin_gcc_version *version)
 {
-
-    register_callback(plugin_info->base_name, PLUGIN_ALL_IPA_PASSES_END, cnile, NULL);
+    register_callback(plugin_info->base_name,
+                      PLUGIN_ALL_IPA_PASSES_END,
+                      cnile,
+                      NULL);
     return 0;
 }
