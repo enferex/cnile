@@ -35,6 +35,13 @@ The section begins with the text: "<cnile>" and ends with
 "</cnile>".  This permits trivial sed processing:
 `strings <your binary> | sed '/<cnile>/,/<\/cnile/>`'
 
+`objcopy' is also another good utility that can aid extracting just the .cnile
+section from the binary.  For instance, an executable named 'foo' and the .cnile
+section extracted to 'foo.csv'
+objcopy -O binary --only-section=.cnile test test.csv
+(Thanks to ndim over at:
+http://stackoverflow.com/questions/3925075/how-do-you-extract-only-the-contents-of-an-elf-section)
+
 
 Install
 -------
