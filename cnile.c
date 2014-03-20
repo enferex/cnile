@@ -45,7 +45,7 @@ static void cnile(void *gcc_data, void *user_data)
 
         /* Do not insert a comma if this is the last option */
         if ((i+1) < save_decoded_options_count)
-          assemble_string(", ", strlen(c));
+          assemble_string(", ", strlen(", "));
     }
     assemble_string(ftr, strlen(ftr));
 }
