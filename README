@@ -10,6 +10,12 @@ forgot?  Well, that day is over.  This is a stupid-simple plugin which stashes
 all build flags in a separate section of the binary being compiled.
 
 
+Related Works
+-------------
+`ld' provides a --build-id flag
+`gcc' provides -frecord-gcc-switches and -grecord-gcc-switches
+
+
 Dependencies
 ------------
 GCC version 4.5 introduced plugins.  cnile has only been built and tested on
